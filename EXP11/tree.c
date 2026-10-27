@@ -15,7 +15,6 @@ struct Node* createNode(int data){
     return newNode;
 }
 
-
 void inorder(struct Node* root){
     if(root == NULL){
         return;

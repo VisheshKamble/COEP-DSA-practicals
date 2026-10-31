@@ -1,13 +1,13 @@
-#include<stdio.h>
+#include <stdio.h>
 #include<stdlib.h>
 
 void removeduplicates(double a[] , int *n){
     for(int i = 0 ; i < *n ; i++){
         for(int j = i + 1 ; j < *n ; j++){
             if(a[j] == a[i]){
-                for(int k = j ; k < *n - 1 ; k++)
-                    a[k] = a[k + 1];
-
+                for(int k = j ; k < *n - 1 ; k++){
+                    a[k] = a[k+1];
+                }
                 (*n)--;
                 j--;
             }
@@ -15,27 +15,21 @@ void removeduplicates(double a[] , int *n){
     }
 }
 
-
 int main(){
-
     double a[100];
     int n ;
 
-
-    printf("Enter the number of elements :");
+    printf("Enter The Number Of Elements : ");
     scanf("%d" , &n);
 
-
-    printf("\nEnter Elements : ");
-
+    printf("Enter the elements with duplicates : ");
     for(int i = 0 ; i < n ; i++){
         scanf("%lf" , &a[i]);
     }
 
     removeduplicates(a , &n);
 
-    printf("\nArray After Removing :  ");
-
+    printf("Removed Duplicates : ");
     for(int i = 0 ; i < n ; i++){
         printf("%g " , a[i]);
     }

@@ -1,56 +1,43 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-#include<stdlib.h>
-
-
-struct Node{
+typedef struct Node {
     char digit;
     struct Node * next;
-};
+}Integer;
 
 int main(){
+    Integer *head = NULL , *temp = NULL , *newNode ;
 
-    struct Node* head = NULL;
-    struct Node* temp = NULL;
-    struct Node* newNode ;
+    printf("Enter a Large Number : ");
+    char ch;
+    
+    while((ch = getchar()) != '\n' && ch != EOF){
 
-    char ch ;
-
-    printf("Enter a Large Number :  ");
-
-    while((ch = getchar()) != '\n' && ch != EOF ){
         if(ch >= '0' && ch <= '9'){
-            newNode = malloc(sizeof(struct Node));
+        newNode = malloc(sizeof(Integer));
+        newNode -> digit = ch ;
+        newNode -> next = NULL;
 
-            if(newNode == NULL){
-                printf("Memory Not Allocated");
-                return 1;
-            }
-
-            newNode -> digit = ch ;
-            newNode -> next = NULL;
-
-            if(head == NULL){
-                head = newNode;
-            }else{
-                temp -> next = newNode;
-            }
-
-            temp = newNode;
-        
+        if(head == NULL){
+            head = newNode;
+        }else{
+            temp -> next = newNode;
         }
+        temp = newNode; 
     }
+}
 
-    printf("Linked List : ");
+printf("Large Integer : ");
 
-    temp = head;
+temp = head;
+while(temp != NULL){
+    printf("%c " , temp -> digit);
+    temp = temp -> next;
+}
 
-    while(temp != NULL){
-        printf("%c -> " , temp -> digit);
-        temp = temp -> next;
-    }
+printf("NULL");
 
-printf("NULL\n");
 return 0;
 
 }

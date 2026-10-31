@@ -15,7 +15,7 @@ int main(){
     }
 
     while(fgets(name[n] , 100 , fp)  != NULL){
-        name[n][strcspn(name[n] , "\0")] = '\0';
+        name[n][strcspn(name[n] , "\n")] = '\0';
         n++;
     }
 

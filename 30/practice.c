@@ -27,7 +27,7 @@ void kruskals(){
 
     for(int i = 0 ; i < m - 1 ; i++){
         for(int j = 0 ; j < m - i - 1 ; j++){
-            if(e[j].w > e[j].w){
+            if(e[j].w > e[j+1].w){
                 temp = e[j];
                 e[j] = e[j+1];
                 e[j+1] = temp;
